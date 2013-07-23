@@ -1,7 +1,12 @@
 package org.matin.database;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.imageio.ImageIO;
 
 /**
  * The Sample class provides an interface for reading and writing material 
@@ -25,7 +30,11 @@ public class Sample extends MatINWriteableObject {
 	
 	protected Material material;
 	
+	protected List<String> imageURLs = new ArrayList<String>();
+		
 	/**
+	 * Get the the name of this Sample object.
+	 * 
 	 * @return the name
 	 */
 	public String getName() {
@@ -33,6 +42,8 @@ public class Sample extends MatINWriteableObject {
 	}
 
 	/**
+	 * Set the name of this sample object.
+	 * 
 	 * @param name the name to set
 	 */
 	public void setName(String name) {
@@ -40,6 +51,8 @@ public class Sample extends MatINWriteableObject {
 	}
 
 	/**
+	 * Get a text description of this sample object.
+	 * 
 	 * @return the description
 	 */
 	public String getDescription() {
@@ -47,6 +60,8 @@ public class Sample extends MatINWriteableObject {
 	}
 
 	/**
+	 * Set the text the description of this sample object.
+	 * 
 	 * @param description the description to set
 	 */
 	public void setDescription(String description) {
@@ -54,6 +69,8 @@ public class Sample extends MatINWriteableObject {
 	}
 
 	/**
+	 * Get the material objec that this sample is made of.
+	 * 
 	 * @return the material
 	 */
 	public Material getMaterial() {
@@ -61,13 +78,46 @@ public class Sample extends MatINWriteableObject {
 	}
 
 	/**
+	 * Set the material object that this sample is made of.
+	 * 
 	 * @param material the material to set
 	 */
 	public void setMaterial(Material material) {
 		this.material = material;
 	}
-
-	protected List<String> imageURLs = new ArrayList<String>();
 	
+	/**
+	 * Add an image of the sample to it's profile.
+	 * 
+	 * @param imageFilePath The location of the image file to add.
+	 */
+	public void addSampleImageFile(String imageFilePath) throws IOException
+	{
+		// Try to open the image to check if it is valid
+		BufferedImage img = ImageIO.read(new File(imageFilePath));
+		
+		// If we didn't get an exception then we can add this valid image to the
+		// list.
+		imageURLs.add(imageFilePath);
+	}
+
+	/**
+	 * Remove a specific image file from the profile of a sample.
+	 * 
+	 * @param imageFilePath
+	 */
+	public void removeSampleImageFile(String imageFilePath)
+	{
+		imageURLs.remove(imageFilePath);
+	}
+	
+	/**
+	 * Clear all of the images from the list.
+	 */
+	public void cleanSampleImageFiles()
+	{
+		imageURLs.clear();
+	}
+
 	
 }
