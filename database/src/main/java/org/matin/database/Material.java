@@ -15,6 +15,11 @@ public class Material extends MatINWriteableObject {
 	
 	protected String description;
 	
+	public Material(String name, String description) {
+		this.name = name;
+		this.description = description;
+	}
+
 	/**
 	 * @return the name
 	 */

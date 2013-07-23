@@ -33,6 +33,18 @@ public class Sample extends MatINWriteableObject {
 	protected List<String> imageURLs = new ArrayList<String>();
 		
 	/**
+	 * @param name
+	 * @param description
+	 * @param material
+	 */
+	public Sample(String name, String description, Material material) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.material = material;
+	}
+
+	/**
 	 * Get the the name of this Sample object.
 	 * 
 	 * @return the name

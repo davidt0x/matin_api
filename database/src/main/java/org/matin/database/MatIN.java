@@ -3,6 +3,9 @@
  */
 package org.matin.database;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * The main class for accessing the Materials Innovation Network (MatIN)
  * database.
@@ -26,6 +29,64 @@ public class MatIN {
 		this.sessionKey = sessionKey;
 	}
 	
+	/**
+	 * Search for a material in the database by case-sensitive name. 
+	 * 
+	 * @param name The name of the material to search.
+	 * @return The material found in the database.
+	 * @throws MatINMaterialNotFoundException
+	 */
+	public Material FindMaterial(String name)
+		throws MatINMaterialNotFoundException
+	{
+		return FindMaterial(name, true);
+	}
 	
+	/**
+	 * Search for a material in the database by name. 
+	 * 
+	 * @param name The name of the material to search.
+	 * @param isCaseSensitive Whether the search is case sensitive.
+	 * @throws MatINMaterialNotFoundException
+	 * @return The material found in the database.
+	 */
+	public Material FindMaterial(String name, boolean isCaseSensitive)
+		throws MatINMaterialNotFoundException
+	{
+		// TODO: Query the database for a material with the name
+		Material m = new Material("Testing", "This is a test material.");
+		
+		return m;
+	}
+	
+	/**
+	 * Search for any material in the database whose name partially
+	 * matches the case-sensitive name
+	 * 
+	 * @param name The name of the material to search.
+	 * @return A list of matching materials.
+	 */
+	public List<Material> FindMaterials(String name)
+			throws MatINMaterialNotFoundException
+	{
+		return FindMaterials(name, true);
+	}
+	
+	
+	/**
+	 * Search for any material in the database whose name partially
+	 * matches the name
+	 * 
+	 * @param name The name of the material to search.
+	 * @param isCaseSensitive Whether the search is case sensitive.
+	 * @return A list of matching materials.
+	 */
+	public List<Material> FindMaterials(String name, boolean isCaseSensitive)
+			throws MatINMaterialNotFoundException
+	{
+		// TODO: Query the database for any materials that partially matches 
+		// the name passed in as a parameter.
+		return new ArrayList<Material>();
+	}
 	
 }
