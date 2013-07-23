@@ -23,13 +23,51 @@ public class Sample extends MatINWriteableObject {
 	
 	protected String description; 
 	
-	protected List<String> imageURLs = new ArrayList<String>();
+	protected Material material;
 	
-	
-	public Sample(String name, String description)
-	{
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
 		this.name = name;
+	}
+
+	/**
+	 * @return the description
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * @param description the description to set
+	 */
+	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	/**
+	 * @return the material
+	 */
+	public Material getMaterial() {
+		return material;
+	}
+
+	/**
+	 * @param material the material to set
+	 */
+	public void setMaterial(Material material) {
+		this.material = material;
+	}
+
+	protected List<String> imageURLs = new ArrayList<String>();
+	
 	
 }
